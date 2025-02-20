@@ -65,7 +65,7 @@ int main(){
         }
         else{
             useTuple(tuples, findState(state, tuples, stateNum), tape, direc, tapePos, state);
-            cout << tape << endl;
+            cout << tape << "{" << state << "}" << endl;
         }
     }
 
@@ -97,15 +97,23 @@ void useTuple(char tuples[][5], int state, string &tape, bool &direc, int &tapeP
 }
 
 void tapeEdit(string &tape, char instruct[3], bool &direc, int &tapePos, char &cState){
-    int size = tape.length();
+    int size;
+    if(!tape.empty())
+        size = tape.length();
+    else 
+        size = 0;
     vector<char> copyTape;
     vector<char>::iterator it;
     it = copyTape.begin();
-    for(int i = 0; i < size; i++)
-        copyTape.push_back(tape[i]);
 
-    
-    if(direc == 0 && tapePos == 0){
+    if(!tape.empty()){
+        for(int i = 0; i < size; i++)
+            copyTape.push_back(tape[i]);
+    }
+    if(tape.empty()){
+        copyTape.push_back(instruct[0]);
+    }
+    else if(direc == 0 && tapePos == 0){
         //left and beginning of tape
         copyTape.insert(copyTape.begin(), instruct[0]);
     }
