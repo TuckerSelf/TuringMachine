@@ -51,9 +51,9 @@ int main(){
         }
     }
 
-    getline(cin, tape, '}');
-    state = tape[1];
-    tape = "";
+    string initState;
+    getline(cin, initState, '}');
+    state = initState[1];
 
     cout << "Maximum Iterations: ";
     cin >> maxIters;
