@@ -34,17 +34,22 @@ int main(){
     string userIn;
     char **tuples;
     int stateNum = 0;
+    bool inputs = 1;
+
     cout << "Enter 5-Tuples. Enter a '.' by itself to end." << endl;
-    getline(cin, userIn);
-    if(userIn == "."){
-        cout << "Enter the initial tape and press enter." << endl;
-        cin >> tape;
-    }
-    else{
-        //always assumes correct input
-        for(int i = 0; i < 5; i++)
-            tuples[stateNum][i] = userIn[i];
-        stateNum++;
+    while(inputs == 1){
+        getline(cin, userIn);
+        if(userIn == "."){
+            inputs = 0;
+            cout << "Enter the initial tape and press enter." << endl;
+            cin >> tape;
+        }
+        else{
+            //always assumes correct input
+            for(int i = 0; i < 5; i++)
+                tuples[stateNum][i] = char(userIn[i]);
+            stateNum++;
+        }
     }
 
     cout << "Maximum Iterations: ";
