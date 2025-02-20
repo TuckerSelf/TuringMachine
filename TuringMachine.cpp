@@ -9,7 +9,7 @@ int findState(char state, char tuples[][5], int stateNum);
 
 void useTuple(char tuples[][5], int state, string &tape, bool &direc, int &tapePos, char &cState);
 
-void tapeEdit(string &tape, char instruct[3], bool &direc, int &tapePos, char &cState);
+void tapeEdit(string &tape, char instruct[], bool &direc, int &tapePos, char &cState);
 
 int main(){
     //current state
@@ -96,7 +96,7 @@ void useTuple(char tuples[][5], int state, string &tape, bool &direc, int &tapeP
     tapeEdit(tape, instructions, direc, tapePos, cState);
 }
 
-void tapeEdit(string &tape, char instruct[3], bool &direc, int &tapePos, char &cState){
+void tapeEdit(string &tape, char instruct[], bool &direc, int &tapePos, char &cState){
     int size;
     if(!tape.empty())
         size = tape.length();
@@ -110,6 +110,7 @@ void tapeEdit(string &tape, char instruct[3], bool &direc, int &tapePos, char &c
         for(int i = 0; i < size; i++)
             copyTape.push_back(tape[i]);
     }
+
     if(tape.empty()){
         copyTape.push_back(instruct[0]);
     }
