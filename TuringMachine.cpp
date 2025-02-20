@@ -21,7 +21,7 @@ int main(){
     //the tape 
     string tape;
 
-    //check terminate
+    //check terminate (-1 for termination)
     int terminate = 0;
 
     //left(0) or right(1)
