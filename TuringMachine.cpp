@@ -5,9 +5,9 @@
 
 using namespace std;
 
-int findState(char state, char **tuples, int stateNum);
+int findState(char state, char tuples[][5], int stateNum);
 
-void useTuple(char **tuples, int state, string &tape, bool &direc, int &tapePos, char &cState);
+void useTuple(char tuples[][5], int state, string &tape, bool &direc, int &tapePos, char &cState);
 
 void tapeEdit(string &tape, char instruct[3], bool &direc, int &tapePos, char &cState);
 
@@ -32,7 +32,7 @@ int main(){
 
     //setting up tuples
     string userIn;
-    char **tuples;
+    char tuples[100][5];
     int stateNum = 0;
     bool inputs = 1;
 
@@ -42,7 +42,6 @@ int main(){
         if(userIn == "."){
             inputs = 0;
             cout << "Enter the initial tape and press enter." << endl;
-            cin >> tape;
         }
         else{
             //always assumes correct input
@@ -51,6 +50,10 @@ int main(){
             stateNum++;
         }
     }
+
+    getline(cin, tape, '}');
+    state = tape[1];
+    tape = "";
 
     cout << "Maximum Iterations: ";
     cin >> maxIters;
@@ -74,10 +77,10 @@ int main(){
     }
 }
 
-int findState(char state, char **tuples, int stateNum){
+int findState(char state, char tuples[][5], int stateNum){
     int statePos = 0;
     while (statePos < stateNum){
-    if(tuples[statePos][1] == state)
+    if(tuples[statePos][0] == state)
         return statePos;
     else
         statePos++;
@@ -85,7 +88,7 @@ int findState(char state, char **tuples, int stateNum){
     return -1;
 }
 
-void useTuple(char **tuples, int state, string &tape, bool &direc, int &tapePos, char &cState){
+void useTuple(char tuples[][5], int state, string &tape, bool &direc, int &tapePos, char &cState){
     char instructions[3];
     for(int i = 0; i < 3; i++){
         instructions[i] == tuples[state][i+2]; 
