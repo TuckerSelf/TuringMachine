@@ -106,12 +106,12 @@ void tapeEdit(string &tape, char instruct[], bool &direc, int &tapePos, char &cS
     vector<char>::iterator it;
     it = copyTape.begin();
 
-    if(!tape.empty()){
+    if(size > 0){
         for(int i = 0; i < size; i++)
             copyTape.push_back(tape[i]);
     }
 
-    if(tape.empty()){
+    if(size == 0){
         copyTape.push_back(instruct[0]);
     }
     else if(direc == 0 && tapePos == 0){
@@ -148,7 +148,7 @@ void tapeEdit(string &tape, char instruct[], bool &direc, int &tapePos, char &cS
         tapePos = 0;
     else if(direc == 0)
         tapePos--;
-    else if(direc == 1 && tapePos < size)
+    else if(direc == 1 && tapePos < size-1)
         tapePos++;
     else
         tapePos = tapePos;
