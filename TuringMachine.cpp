@@ -22,7 +22,7 @@ int main(){
     string tape;
 
     //check terminate (-1 for termination)
-    int terminate = 0;
+    int term = 0;
 
     //left(0) or right(1)
     bool direc = 1;
@@ -54,14 +54,14 @@ int main(){
     string initState;
     getline(cin, initState, '}');
     state = initState[1];
-
+    
     cout << "Maximum Iterations: ";
     cin >> maxIters;
  
     cout << "{" << state << "}" << endl;
     for(int i = 0; i < maxIters; i++){
         if(findState(state, tuples, stateNum) == -1){
-            terminate == -1;
+            term == -1;
             state = state;
         }
         else{
@@ -70,7 +70,7 @@ int main(){
         }
     }
 
-    if(terminate == -1){
+    if(term == -1){
         cout << "HALTED \nFinal State:" << state;
     }
     else{
@@ -134,22 +134,22 @@ void tapeEdit(string &tape, char instruct[], bool &direc, int &tapePos, char &cS
 
     //rewrite tape string
     tape = copyTape[0];
-    for(int i = 1; i < size; i++){
+    for(int i = 1 ; i <= size; i++){
         tape.push_back(copyTape[i]);
     }
 
     //change direction
     if(toupper(instruct[1]) == 'L')
-    direc = 0;
+      direc = 0;
     else
-    direc = 1;
+      direc = 1;
 
     //change position
     if(direc == 0 && tapePos == 0)
         tapePos = 0;
     else if(direc == 0)
         tapePos--;
-    else if(direc == 1 && tapePos < size-1)
+    else if(direc == 1 && tapePos < size)
         tapePos++;
     else
         tapePos = tapePos;
