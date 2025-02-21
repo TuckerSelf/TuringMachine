@@ -91,7 +91,7 @@ int findState(char state, char tuples[][5], int stateNum){
 void useTuple(char tuples[][5], int state, string &tape, bool &direc, int &tapePos, char &cState){
     char instructions[3];
     for(int i = 0; i < 3; i++){
-        instructions[i] == tuples[state][i+2]; 
+        instructions[i] = tuples[state][i+2]; 
     }
     tapeEdit(tape, instructions, direc, tapePos, cState);
 }
