@@ -1,0 +1,39 @@
+//trying to understand table
+A eRB
+B eRC
+C 0RD
+D  RE
+E 0RF
+F  RG
+G 1RH
+H  RI
+I 0RZ
+ee0 0 1 0
+
+//code run
+Enter 5-Tuples. Enter a '.' by itself to end.
+A eRB
+B eRC
+C 0RD
+D  RE
+E 0RF
+F  RG
+G 1RH
+H  RI
+I 0RZ
+.
+Enter the initial tape and press enter.
+{A}
+Maximum Iterations: 50
+{A}
+e{B}
+ee{C}
+ee0{D}
+ee0 {E}
+ee0 0{F}
+ee0 0 {G}
+ee0 0 1{H}
+ee0 0 1 {I}
+ee0 0 1 0{Z}
+Max Iterations Reached
+Final State: Z
