@@ -58,6 +58,7 @@ int main(){
     cout << "Maximum Iterations: ";
     cin >> maxIters;
  
+    cout << "{" << state << "}" << endl;
     for(int i = 0; i < maxIters; i++){
         if(findState(state, tuples, stateNum) == -1){
             terminate == -1;
@@ -134,7 +135,7 @@ void tapeEdit(string &tape, char instruct[], bool &direc, int &tapePos, char &cS
     //rewrite tape string
     tape = copyTape[0];
     for(int i = 1; i < size; i++){
-        tape += copyTape[i];
+        tape.push_back(copyTape[i]);
     }
 
     //change direction
